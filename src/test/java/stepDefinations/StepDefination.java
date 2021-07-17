@@ -18,6 +18,7 @@ public class StepDefination extends Utility {
 	RequestSpecification res;
 	ResponseSpecification resspec;
 	Response response;
+	static String placeID; 
 	
 	
 	TestData testData = new TestData();
@@ -54,11 +55,17 @@ public void in_response_body_is(String keyValue, String expValue) {
 @Then("verify place ID created maps to {string} using {string}")
 public void verify_place_id_created_maps_to_using(String expName, String resource) throws Exception {
     
-	String placeID = getJsonPath(response, "place_id");
+	 placeID = getJsonPath(response, "place_id");
 	 res = given().spec(requestSpecification()).queryParam("place_id", placeID);
 	 user_calls_with_http_request(resource,"GET");
 	 String actname = getJsonPath(response, "name");
 	 assertEquals(actname,expName);
+}
+
+@Given("Delete place payload")
+public void delete_place_payload() throws Exception {   
+
+	res = given().spec(requestSpecification()).body(testData.deletePlacePayLoad(placeID));
 }
 
 

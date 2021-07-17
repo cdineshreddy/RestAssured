@@ -29,5 +29,10 @@ public class TestData {
 		
 		return p;
 	}
+	
+	public String deletePlacePayLoad(String placeID) {
+		
+		return "{\r\n    \"place_id\":\""+placeID+"\"\r\n}" ;
+	}
 
 }

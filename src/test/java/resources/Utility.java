@@ -17,6 +17,7 @@ public class Utility {
 	
 	RequestSpecification req;
 	
+	
 	public RequestSpecification requestSpecification() throws Exception{
 		
 		PrintStream log = new PrintStream(new FileOutputStream("logging.txt"));
@@ -41,7 +42,7 @@ public class Utility {
 		
 		String resp = response.asString();
 		JsonPath  js = new JsonPath(resp);
-		return js.get(key).toString();
+		return js.get(key);
 	}
 
 }
