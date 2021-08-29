@@ -14,7 +14,8 @@ Examples:
 |Dell	 	 | English     | World Cross Center |
 #|Lenevo	 | Spanish    | Sea Cross Center      |
 
-@DeletePlace
+
+@DeletePlace 
 Scenario: Verify if Delete place functionality is working
 				Given Delete place payload
 				When user calls "deletePlaceAPI" with "POST" http request
